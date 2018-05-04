@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Baidu, Inc. All Rights Reserved.
+ * Copyright (C) 2018 Taojian, Inc. All Rights Reserved.
  */
 package com.offer.demo.singleton;
 

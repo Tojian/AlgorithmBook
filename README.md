@@ -7,4 +7,5 @@ write a summary of algorithm
 
 ## 剑指offer
 ---
-1.单例模式
+1.单例模式</p>
+2.二维数组的查找
