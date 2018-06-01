@@ -1,4 +1,4 @@
-package com.offer.demo;
+package com.taojian.linknode;
 
 /**
  * 反转链表

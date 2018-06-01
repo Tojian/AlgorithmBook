@@ -1,4 +1,4 @@
-package com.offer.demo;
+package com.taojian.string;
 
 /**
  * 替换字符串
