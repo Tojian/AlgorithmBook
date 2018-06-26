@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 //num1,num2分别为长度为1的数组。传出参数
 //将num1[0],num2[0]设置为返回结果
 public class Solution {
