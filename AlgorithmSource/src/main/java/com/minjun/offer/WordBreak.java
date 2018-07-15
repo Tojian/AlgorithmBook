@@ -18,7 +18,6 @@ import java.util.Set;
 public class WordBreak {
     // 动态规划
     public static boolean wordBreak(String s, Set<String> dict) {
-
         int len = s.length();
         //申请一个数组，存放中间结果
         boolean dp[] = new boolean[len+1];
