@@ -12,6 +12,10 @@ public class IsLoop {
     static class Node{
         int value;
         Node next;
+
+        Node(int value){
+            this.value = value;
+        }
     }
     public static boolean isLoop(Node node){
         if(node == null || node.next == null){
