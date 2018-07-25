@@ -1,4 +1,4 @@
-package com.offer.demo.singleton;
+package com.taojian.demo.singleton;
 
 public class Singleton_3 {
 
@@ -10,7 +10,7 @@ public class Singleton_3 {
         System.out.println(singleton_2);
     }
 
-    private volatile static  Singleton_3 singleton_3;
+    private volatile static Singleton_3 singleton_3;
 
     private Singleton_3(){}
 
