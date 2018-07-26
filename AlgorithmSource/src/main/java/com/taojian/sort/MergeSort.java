@@ -26,7 +26,6 @@ public class MergeSort {
 
         }
         return nums;
-
     }
 
     public static void merge(int[] nums, int low, int mid, int high) {
