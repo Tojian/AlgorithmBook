@@ -1,4 +1,4 @@
-package com.taojian.array;
+package com.taojian.array.binarysearch;
 
 /**
  * @description:
