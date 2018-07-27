@@ -28,27 +28,26 @@ public class CoinChange {
 
 
     }
-        public static int maxValue = 1000000;
-        public int search(int idx, int amount, int[] coins){
-            if (amount == 0)
-                return 0;
-            if ( amount < 0)
-                return maxValue;
-            if (idx >= coins.length)
-                return maxValue;
-
-            int a = search(idx ,amount -coins[idx] ,coins);
-            int b = search(idx +1 ,amount ,coins);
-
-            return Math.min(a + 1 ,b);
-
-        }
-        public int coinChange(int[] coins, int amount) {
-            int res =  search(0,amount,coins);
-            if (res < maxValue)
-                return res;
-            else
-                return -1;
-        }
+    public int coinChange(int[] coins, int amount) {
+        return coinChange(0, coins, amount);
     }
+
+    private int coinChange(int idxCoin, int[] coins, int amount) {
+        if (amount == 0)
+            return 0;
+        if (idxCoin < coins.length && amount > 0) {
+            int maxVal = amount/coins[idxCoin];
+            int minCost = Integer.MAX_VALUE;
+            for (int x = 0; x <= maxVal; x++) {
+                if (amount >= x * coins[idxCoin]) {
+                    int res = coinChange(idxCoin + 1, coins, amount - x * coins[idxCoin]);
+                    if (res != -1)
+                        minCost = Math.min(minCost, res + x);
+                }
+            }
+            return (minCost == Integer.MAX_VALUE)? -1: minCost;
+        }
+        return -1;
+    }
+}
 
