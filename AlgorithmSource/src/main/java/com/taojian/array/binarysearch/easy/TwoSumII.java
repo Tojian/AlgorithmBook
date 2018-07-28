@@ -25,7 +25,13 @@ import java.util.HashMap;
  **/
 public class TwoSumII {
 
-    public int[] twoSum(int[] numbers, int target) {
+    public static void main(String[] args) {
+        int[] nums = {5, 25, 75};
+        int[] res = twoSum(nums, 100);
+        System.out.println(res[0] + " " + res[1]);
+    }
+
+    public static int[] twoSum(int[] numbers, int target) {
         if (numbers.length < 0) {
             return null;
         }
@@ -58,6 +64,29 @@ public class TwoSumII {
             } else {
                 hashMap.put(numbers[i], i);
             }
+        }
+        return null;
+    }
+
+    /**
+     * 双指针
+     * @param numbers
+     * @param target
+     * @return
+     */
+    public int[] twoSum3(int[] numbers, int target) {
+        int len = numbers.length;
+        int sum;
+        int left = 0;
+        int right = len - 1;
+        while(left < right){
+            sum = numbers[left] + numbers[right];
+            if(sum == target)
+                return new int[]{left+1, right+1};
+            else if (sum < target)
+                left ++;
+            else
+                right --;
         }
         return null;
     }
