@@ -1,5 +1,7 @@
 package com.taojian.array.binarysearch.easy;
 
+import java.util.Arrays;
+
 /**
  * @description:
  * @author: taojian
@@ -31,6 +33,40 @@ package com.taojian.array.binarysearch.easy;
  * houses can be warmed.
  **/
 public class Heaters {
+    /**
+     *
+     * @param houses
+     * @param heaters
+     * @return
+     */
+    public int findRadius(int[] houses, int[] heaters) {
+        // sort
+        Arrays.sort(houses);
+        Arrays.sort(heaters);
+
+        int radius = 0;
+        for(int house : houses) {
+            int local = binarySearch(heaters, house);
+            radius = Math.max(radius, local);
+        }
+
+        return radius;
+    }
 
 
+    public static int binarySearch(int[] heaters, int target) {
+        int l = 0, r = heaters.length - 1;
+        while(l + 1 < r) {
+            int mid = l + (r - l) / 2;
+            if(heaters[mid] == target) return 0;
+            else if(heaters[mid] < target) l = mid;
+            else r = mid;
+        }
+        return Math.min(Math.abs(target - heaters[l]), Math.abs(target - heaters[r]));
+    }
+
+    public static void main(String[] args) {
+        int [] nums = {1 ,2 ,3,4};
+        System.out.println(binarySearch(nums,7));
+    }
 }
