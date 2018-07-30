@@ -4,10 +4,10 @@ package com.taojian.array.binarysearch.middle;
  * @description:
  * @author: taojian
  * @create: 2018-07-29 14:26
- *
- *
+ * <p>
+ * <p>
  * Given two integer arrays A and B, return the maximum length of an subarray that appears in both arrays.
- *
+ * <p>
  * Example 1:
  * Input:
  * A: [1,2,3,2,1]
