@@ -24,4 +24,7 @@ package com.taojian.array.binarysearch.middle;
  * Output: 0
  **/
 public class FindMinimumRotatedSortedArray {
+    public static void main(String[] args) {
+
+    }
 }
