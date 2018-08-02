@@ -1,4 +1,4 @@
-package com.taojian.ali;
+package com.taojian.interview.ali;
 
 import java.util.Scanner;
 
