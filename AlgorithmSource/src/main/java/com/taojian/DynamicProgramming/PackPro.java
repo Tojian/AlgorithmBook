@@ -10,8 +10,8 @@ package com.taojian.DynamicProgramming;
  * 每件的重量分别是W1、W2、……、Wn，
  * 每件物品的价值分别为C1、C2、……、Cn，
  * 需要将物品放入背包中，要怎么样放才能保证背包中物品的总价值最大？
- *
- *
+ * <p>
+ * <p>
  * 输入描述:
  * 宝贝价值：6,3,5,4,6
  * 宝贝重量：2,2,6,5,4
@@ -34,24 +34,38 @@ public class PackPro {
     // 总体重量
     static int W;
 
+    static int[][] f = new int[w.length][W];
 
-    public static  int sovle(int idx, int surplusW) {
+    public static int sovle(int idx, int surplusW) {
         if (surplusW > W) {
             return 0;
         }
         if (idx < 0) {
             return 0;
         }
-        if (idx > w.length)
+        if (idx > w.length) {
             return 0;
-        return Math.max(sovle(idx + 1, surplusW + w[idx]) + c[idx], sovle(idx + 1, surplusW));
+        }
+        if (f[idx][surplusW] >= 0) {
+            return f[idx][surplusW];
+        }
+
+        f[idx][surplusW] = Math.max(f[idx + 1][surplusW + w[idx]] + c[idx], f[idx + 1][surplusW]);
+
+        return f[idx][surplusW];
     }
 
     public static void main(String[] args) {
-      w = new int[] {2, 2, 6, 5, 4};
-      c = new int[] {6,3,5,4,6};
-      W = 10;
-        System.out.println(sovle(0,0));
+        w = new int[] {2, 2, 6, 5, 4};
+        c = new int[] {6, 3, 5, 4, 6};
+        W = 10;
+        for (int i = 0; i < w.length; i++) {
+            f[i][0] =0;
+            for (int j = 1; j < W; j++) {
+                f[i][j] = -1;
+            }
+        }
+        System.out.println(sovle(0, 0));
 
     }
 
