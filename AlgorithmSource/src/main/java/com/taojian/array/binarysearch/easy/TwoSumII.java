@@ -70,8 +70,10 @@ public class TwoSumII {
 
     /**
      * 双指针
+     *
      * @param numbers
      * @param target
+     *
      * @return
      */
     public int[] twoSum3(int[] numbers, int target) {
@@ -79,14 +81,15 @@ public class TwoSumII {
         int sum;
         int left = 0;
         int right = len - 1;
-        while(left < right){
+        while (left < right) {
             sum = numbers[left] + numbers[right];
-            if(sum == target)
-                return new int[]{left+1, right+1};
-            else if (sum < target)
-                left ++;
-            else
-                right --;
+            if (sum == target) {
+                return new int[] {left + 1, right + 1};
+            } else if (sum < target) {
+                left++;
+            } else {
+                right--;
+            }
         }
         return null;
     }

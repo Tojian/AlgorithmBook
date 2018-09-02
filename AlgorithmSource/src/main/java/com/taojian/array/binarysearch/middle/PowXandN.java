@@ -41,28 +41,40 @@ public class PowXandN {
     }
 
     public static double myPow1(double x, int n) {
-        if (n==0)
+        if (n == 0) {
             return 1;
-        if (n==1)
+        }
+        if (n == 1) {
             return x;
+        }
         double result = 0.0;
-        if( Math.abs(n)%2 == 0)
-            result = myPow1(x,Math.abs(n/2))*myPow1(x,Math.abs(n/2));
-        else  result = myPow1(x,Math.abs(n/2))*myPow1(x,Math.abs(n/2))*x;
-        if (n > 0 )
+        if (Math.abs(n) % 2 == 0) {
+            result = myPow1(x, Math.abs(n / 2)) * myPow1(x, Math.abs(n / 2));
+        } else {
+            result = myPow1(x, Math.abs(n / 2)) * myPow1(x, Math.abs(n / 2)) * x;
+        }
+        if (n > 0) {
             return result;
-        else return 1/result;
+        } else {
+            return 1 / result;
+        }
     }
 
-
     public static void main(String[] args) {
-        System.out.println(myPow1(2.0000,-2));
+        System.out.println(myPow1(2.0000, -2));
     }
 
     public double myPow2(double x, int n) {
-        if (n == 0) return 1;
+        if (n == 0) {
+            return 1;
+        }
         double half = myPow2(x, n / 2);
-        if (n % 2 == 0) return half * half;
-        else if (n > 0) return half * half * x;
-        else return half * half / x;}
+        if (n % 2 == 0) {
+            return half * half;
+        } else if (n > 0) {
+            return half * half * x;
+        } else {
+            return half * half / x;
+        }
+    }
 }

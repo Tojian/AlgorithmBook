@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2018 Taojian, Inc. All Rights Reserved.
  */
-package com.taojian.demo.singleton;
+package com.taojian.offer.singleton;
 
 /**
  *  单例模式

@@ -1,4 +1,4 @@
-package com.taojian.demo.singleton;
+package com.taojian.offer.singleton;
 
 public class Singleton_3 {
 

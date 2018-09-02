@@ -29,7 +29,7 @@ public class CoinChange {
 
     }
     public int coinChange(int[] coins, int amount) {
-        return coinChange(0, coins, amount);
+        return search(0, amount ,coins);
     }
 
     private int coinChange(int idxCoin, int[] coins, int amount) {
@@ -48,6 +48,18 @@ public class CoinChange {
             return (minCost == Integer.MAX_VALUE)? -1: minCost;
         }
         return -1;
+    }
+
+    public static int search(int idx ,int amount ,int[]coins){
+        if (amount == 0)
+            return 0;
+        if (amount < 0)
+            return  -1;
+        if (idx >= coins.length){
+            return  -1;
+        }
+
+       return  Math.min(search(idx ,amount - coins[idx] ,coins) + 1 ,search(idx + 1,amount ,coins));
     }
 }
 

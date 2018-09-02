@@ -1,4 +1,4 @@
-package com.taojian.demo;
+package com.taojian.offer;
 
 /**
  * @description: 重建二叉树

@@ -1,4 +1,4 @@
-package com.taojian.demo;
+package com.taojian.offer;
 
 /**
  * 两个有序数组，A ，B ，A的末尾有足够多的长度，B的数组的数字插入A的数组里面，保证有序

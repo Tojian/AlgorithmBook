@@ -37,20 +37,24 @@ import java.util.HashMap;
 public class IsSubsequence {
     public boolean isSubsequence(String s, String t) {
 
-        if (s == null || t == null) return false;
-        if (s.length() == 0) return true;
+        if (s == null || t == null) {
+            return false;
+        }
+        if (s.length() == 0) {
+            return true;
+        }
         char[] strA = t.toCharArray();
         char[] strB = s.toCharArray();
 
         int j = 0;
         boolean result = false;
 
-        for (int i = 0; i < strA.length; i++){
-            if (strA[i] == strB[j]){
+        for (int i = 0; i < strA.length; i++) {
+            if (strA[i] == strB[j]) {
                 j++;
             }
 
-            if (j == strB.length){
+            if (j == strB.length) {
                 result = true;
                 break;
             }

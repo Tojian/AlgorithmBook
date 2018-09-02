@@ -1,4 +1,4 @@
-package com.taojian.demo.singleton;
+package com.taojian.offer.singleton;
 
 /**
  * 双重加锁机制适合多线程的情况

@@ -30,7 +30,7 @@ public class KthSmallestElementSortedMatrix {
                 {12, 14, 200}
         };
 
-        System.out.println(kthSmallest(matrix,7));
+        System.out.println(kthSmallest(matrix, 7));
     }
 
     public static int kthSmallest(int[][] matrix, int k) {

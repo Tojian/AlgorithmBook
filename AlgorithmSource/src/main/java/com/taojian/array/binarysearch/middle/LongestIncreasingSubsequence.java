@@ -42,9 +42,10 @@ public class LongestIncreasingSubsequence {
     }
 
     public static void main(String[] args) {
-        int [] nums = {10,9,2,5,3,7,101,18};
+        int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
         System.out.println(lengthOfLIS1(nums));
     }
+
     public static int lengthOfLIS1(int[] nums) {
         int[] dp = new int[nums.length];
         int len = 0;

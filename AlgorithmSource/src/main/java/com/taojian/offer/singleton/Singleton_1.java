@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2018 Taojian, Inc. All Rights Reserved.
  */
-package com.taojian.demo.singleton;
+package com.taojian.offer.singleton;
 
 public class Singleton_1 {
 
