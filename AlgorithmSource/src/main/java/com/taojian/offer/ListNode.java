@@ -7,11 +7,14 @@ package com.taojian.offer;
  **/
 public class ListNode {
 
-      ListNode nextNode;
+    ListNode nextNode;
 
-      int data;
+    int data;
 
-      public ListNode(int data){
-            this.data = data;
-      }
+    public ListNode() {
+    }
+
+    public ListNode(int data) {
+        this.data = data;
+    }
 }

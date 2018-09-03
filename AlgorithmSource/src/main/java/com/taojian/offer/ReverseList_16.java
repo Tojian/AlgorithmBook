@@ -20,8 +20,7 @@ public class ReverseList_16 {
     }
 
     public ListNode ReverseList1(ListNode head) {
-        ListNode newList = new ListNode();
-        newList.data = - 1;
+        ListNode newList = new ListNode(-1);
         while (head != null) {
             ListNode next = head.nextNode;
             head.nextNode = newList.nextNode;
