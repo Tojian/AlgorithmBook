@@ -2,6 +2,7 @@ package com.taojian.others;
 
 import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.Scanner;
 
 /**
  * @description:
@@ -48,6 +49,22 @@ import java.util.LinkedHashSet;
  **/
 
 public class LFUCache {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int max_cap = Integer.valueOf(in.nextLine());
+        LFUCache ma = new LFUCache(max_cap);
+        while (in.hasNextLine()) {
+            String line = in.nextLine();
+            String[] strs = line.split(" ");
+            if (line.startsWith("p")) {
+                ma.put(Integer.valueOf(strs[1]), Integer.valueOf(strs[2]));
+            } else {
+                System.out.println(ma.get(Integer.valueOf(strs[1])));
+            }
+        }
+
+    }
     class ValCount{
         int val;
         int count;
@@ -116,13 +133,6 @@ public class LFUCache {
         }
     }
 
-    public static void main(String[] args) {
-        LFUCache lfuCache = new LFUCache(3);
-        lfuCache.put(1,1);
-        lfuCache.put(2,2);
-        lfuCache.get(1);
-        lfuCache.put(3,3);
 
-    }
 
 }

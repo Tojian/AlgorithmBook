@@ -2,6 +2,7 @@ package com.taojian.others;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 /**
  * @description:
@@ -54,6 +55,20 @@ import java.util.Map;
  * =>我们需要用两种数据结构来解题：双向链表、哈希表
  **/
 public class LRUCache {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int max_cap = Integer.valueOf(in.nextLine());
+        LRUCache ma = new LRUCache(max_cap);
+        while(in.hasNextLine()){
+            String line = in.nextLine();
+            String[] strs = line.split(" ");
+            if(line.startsWith("p")){
+                ma.put(Integer.valueOf(strs[1]), Integer.valueOf(strs[2]));
+            } else {
+                System.out.println(ma.get(Integer.valueOf(strs[1])));
+            }
+        }
+    }
 
     class Node {
         Node next;
