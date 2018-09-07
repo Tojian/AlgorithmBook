@@ -1,5 +1,7 @@
 package com.taojian.offer;
 
+import java.util.*;
+
 /**
  * @description:
  * @author: taojian
@@ -8,29 +10,34 @@ package com.taojian.offer;
  * 字母全排序
  **/
 public class PermutationABC_38 {
-
-    public static void Permutation(char[] s, int from, int to) {
-        if (to <= 1) {
-            return;
+    public ArrayList<String> Permutation(String str) {
+        List<String> res = new ArrayList<>();
+        if (str != null && str.length() > 0) {
+            PermutationHelper(str.toCharArray(), 0, res);
+            Collections.sort(res);
         }
-        if (from == to) {
-            System.out.println(s);
+        return (ArrayList) res;
+    }
+
+    public void PermutationHelper(char[] cs, int i, List<String> list) {
+        if (i == cs.length - 1) {
+            String val = String.valueOf(cs);
+            if (!list.contains(val)) {
+                list.add(val);
+            }
         } else {
-            for (int i = from; i <= to; i++) {
-                swap(s, i, from);
-                Permutation(s, from + 1, to);
-                swap(s, from, i);
+            for (int j = i; j < cs.length; j++) {
+                swap(cs, i, j);
+                PermutationHelper(cs, i + 1, list);
+                swap(cs, i, j);
             }
         }
     }
 
-    public static void swap(char[] s, int i, int j) {
-        char temp = s[i];
-        s[i] = s[j];
-        s[j] = temp;
+    public void swap(char[] cs, int i, int j) {
+        char temp = cs[i];
+        cs[i] = cs[j];
+        cs[j] = temp;
     }
 
-    public static void main(String[] args) {
-        Permutation(new char[]{'a','b','c'},0,2);
-    }
 }

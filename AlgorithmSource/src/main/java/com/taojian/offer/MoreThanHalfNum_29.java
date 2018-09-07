@@ -1,5 +1,9 @@
 package com.taojian.offer;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 /**
  * @description:
  * @author: taojian
@@ -75,10 +79,46 @@ public class MoreThanHalfNum_29 {
 
     }
 
-    public static void main(String[] args) {
-        int[] array = { 4, 2, 4, 4, 2, 4 };
-        System.out.println(MoreThanHalfNum_Solution(array));
+    private int moreThanHalfNum_Solution(int [] array) {
+        HashMap<Integer, Integer> hashmap = new HashMap<>();
+        for (int i = 0; i < array.length; i++) {
+            if (hashmap.containsKey(array[i]))
+                hashmap.put(array[i], hashmap.get(array[i]) + 1);
+            else
+                hashmap.put(array[i], 1);
+        }
+        Iterator<Map.Entry<Integer,Integer>> iterator = hashmap.entrySet().iterator();
 
+        while (iterator.hasNext()){
+
+            Map.Entry<Integer,Integer> entry = iterator.next();
+            if (entry.getValue() >= (array.length/2))
+                return entry.getValue();
+        }
+        return -1;
+    }
+    public static void main(String[] args) {
+        int[] array = { 1,2,3,2,2,2,5,4,2};
+        System.out.println(ThanHalfNum_Solution(array));
+
+    }
+
+    public static int ThanHalfNum_Solution(int [] array) {
+        HashMap<Integer, Integer> hashmap = new HashMap<>();
+        for (int i = 0; i < array.length; i++) {
+            if (hashmap.containsKey(array[i]))
+                hashmap.put(array[i], hashmap.get(array[i]) + 1);
+            else
+                hashmap.put(array[i], 1);
+        }
+        Iterator<Map.Entry<Integer,Integer>> iterator = hashmap.entrySet().iterator();
+
+        while (iterator.hasNext()){
+            Map.Entry<Integer,Integer> entry = iterator.next();
+            if (entry.getValue() >= (array.length/2))
+                return entry.getKey();
+        }
+        return -1;
     }
 
 }

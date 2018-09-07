@@ -29,6 +29,7 @@ public class SortArrayForMinNumber_33 {
            for (int i :s){
                stringBuilder.append(i);
            }
+
             System.out.println();
         } else {
             for (int i = from; i <= to; i++) {

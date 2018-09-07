@@ -25,7 +25,7 @@ public class FirstNotRepeatingChar_35 {
         char []chars = str.toCharArray();
 
         for (int i = 0 ;i < chars.length ;i ++){
-            if (hashMap.containsKey(chars[i]))
+            if (hashMap.containsKey(chars[i]) )
                 hashMap.put(chars[i],hashMap.get(chars[i])+1);
             else
             hashMap.put(chars[i],1);

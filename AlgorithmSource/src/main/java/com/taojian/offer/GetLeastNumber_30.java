@@ -1,5 +1,7 @@
 package com.taojian.offer;
 
+import java.util.ArrayList;
+
 /**
  * @description:
  * @author: taojian
@@ -10,10 +12,56 @@ package com.taojian.offer;
 public class GetLeastNumber_30 {
 
     public static void main(String[] args) {
-
+        GetLeastNumber_30 getLeastNumber_30 = new GetLeastNumber_30();
         int[] nums = {4, 5, 1, 6, 2, 6, 3, 8};
-        System.out.println(indexGetLeastNumber(nums, 4));
+        ArrayList<Integer> arrayList = getLeastNumber_30.GetLeastNumbers_Solution(nums, 4);
+
+        for (Integer i : arrayList) {
+            System.out.println(i);
+        }
     }
+
+    public ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
+        ArrayList<Integer> arrays = new ArrayList<>();
+        int left = 0;
+        int right = input.length - 1;
+        int index = getIndex(input , 0, right);
+        while (left <= right){
+            int mid = (left - right) / 2 + right;
+            if (index + 1  == k )
+                break;
+            if (index + 1> k)
+                index = getIndex(input , left, mid - 1);
+            else
+                index = getIndex(input , mid + 1, right);
+        }
+        if ((index + 1) != k)
+            return  null;
+        for (int i = 0; i < k; i ++){
+            arrays.add(input[i]);
+        }
+        return arrays;
+    }
+
+    private int getIndex(int [] input , int left ,int right){
+        int p = input[left];
+
+        while (left < right){
+
+            while (left < right && input[right] > p)
+                right --;
+            input[left] = input[right];
+
+            while(left < right && input[left] < p)
+                left ++;
+            input[right] = input[left];
+        }
+        input[left] = p;
+        return left;
+    }
+
+
+
 
     public static int indexGetLeastNumber(int[] nums, int k) {
 
