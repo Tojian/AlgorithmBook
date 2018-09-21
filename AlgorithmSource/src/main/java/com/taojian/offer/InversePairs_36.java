@@ -6,56 +6,62 @@ package com.taojian.offer;
  * @create: 2018-09-05 16:51
  **/
 public class InversePairs_36 {
-
-    public static int[] sort(int[] nums, int low, int high) {
-        int mid = (low + high) / 2;
-        if (low < high) {
-            // 左边
-            sort(nums, low, mid);
-            // 右边
-            sort(nums, mid + 1, high);
-            // 左右归并
-            merge(nums, low, mid, high);
-
+    public static int InversePairs(int[] array) {
+        if (array == null || array.length == 0) {
+            return 0;
         }
-        return nums;
+        int[] copy = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            copy[i] = array[i];
+        }
+        int count = InversePairsCore(array, copy, 0, array.length - 1);//数值过大求余
+        return count;
+
     }
 
-    public static void merge(int[] nums, int low, int mid, int high) {
-        int[] temp = new int[high - low + 1];
-        int i = low;// 左指针
-        int j = mid + 1;// 右指针
-        int k = 0;
-
-        // 把较小的数先移到新数组中
-        while (i <= mid && j <= high) {
-            if (nums[i] < nums[j]) {
-                temp[k++] = nums[i++];
-
+    private static int InversePairsCore(int[] array, int[] copy, int low, int high) {
+        if (low == high) {
+            return 0;
+        }
+        int mid = (low + high) >> 1;
+        int leftCount = InversePairsCore(array, copy, low, mid) % 1000000007;
+        int rightCount = InversePairsCore(array, copy, mid + 1, high) % 1000000007;
+        int count = 0;
+        int i = mid;
+        int j = high;
+        int locCopy = high;
+        while (i >= low && j > mid) {
+            if (array[i] > array[j]) {
+                count += j - mid;
+                copy[locCopy--] = array[i--];
+                if (count >= 1000000007)//数值过大求余
+                {
+                    count %= 1000000007;
+                }
             } else {
-                temp[k++] = nums[j++];
-
+                copy[locCopy--] = array[j--];
             }
-
         }
-        // 把左边剩余的数移入数组
-        while (i <= mid) {
-            temp[k++] = nums[i++];
-
+        for (; i >= low; i--) {
+            copy[locCopy--] = array[i];
         }
-
-        // 把右边边剩余的数移入数组
-        while (j <= high) {
-            temp[k++] = nums[j++];
-
+        for (; j > mid; j--) {
+            copy[locCopy--] = array[j];
         }
-
-        // 把新数组中的数覆盖nums数组
-        for (int k2 = 0; k2 < temp.length; k2++) {
-            nums[k2 + low] = temp[k2];
-
+        for (int s = low; s <= high; s++) {
+            array[s] = copy[s];
         }
+        return (leftCount + rightCount + count) % 1000000007;
+    }
 
+    public static void main(String[] args) throws java.lang.Exception {
+        int[] array = {4, 3, 2, 1};
+
+        //System.out.println(InversePairs(array));
+        System.out.println(2519);
+        System.out.println(24903408);
+        System.out.println(493330277);
+        System.out.println(988418660);
     }
 
 }

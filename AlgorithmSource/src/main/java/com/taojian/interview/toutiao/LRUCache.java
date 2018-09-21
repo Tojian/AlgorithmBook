@@ -1,8 +1,7 @@
-package com.taojian.others;
+package com.taojian.interview.toutiao;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 /**
  * @description:

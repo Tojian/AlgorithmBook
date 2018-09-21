@@ -1,4 +1,4 @@
-package com.taojian.interview.toutiao;
+package com.taojian.interview;
 
 /**
  * @description:

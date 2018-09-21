@@ -1,4 +1,4 @@
-package com.taojian.interview.toutiao;
+package com.taojian.interview;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

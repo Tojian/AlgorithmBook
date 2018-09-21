@@ -1,5 +1,7 @@
 package com.taojian.offer;
 
+import java.util.HashMap;
+
 /**
  * @description: 数组中重复的数字
  * @author: taojian
@@ -24,13 +26,37 @@ public class DuplicateTest {
 
     public static void main(String[] args) {
 
-        int[] nums = {2, 3, 1, 3, 1, 2, 5};
+        int[] nums = {};
         int[] duplication = new int[1];
         if (duplicate(nums, nums.length, duplication)) {
             System.out.println(duplication[0]);
         }
+
+        System.out.println(duplicate1(nums,0,duplication) );
+        System.out.println(duplication[0]);
     }
 
+    public static boolean duplicate1(int numbers[],int length,int [] duplication) {
+
+        if (numbers.length == 0 || length == 0 || numbers == null){
+            duplication[0] = -1;
+            return false;
+        }
+
+        HashMap<Integer,Integer> hashmap = new HashMap<Integer,Integer>();
+
+        for (int i = 0; i < numbers.length; i ++){
+            if (hashmap.containsKey(numbers[i])){
+                duplication[0] = numbers[i];
+                return true;
+            }else{
+                hashmap.put(numbers[i],i);
+            }
+        }
+        duplication[0] = -1;
+        return false;
+
+    }
     public static boolean duplicate(int[] nums, int length, int[] duplication) {
         if (nums == null || length <= 0) {
             return false;
